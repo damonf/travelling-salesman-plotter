@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "tsp-plotter"
+version = "0.1.0"
+description = ""
+authors = ["damon <damonf@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+matplotlib = "^3.5.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-mock = "^3.8.2"
+poethepoet = "^0.16.0"
+coverage = {extras = ["toml"], version = "^6.4.4"}
+pytest-cov = "^3.0.0"
+pylint = "^2.14.5"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+
+  [tool.poe.tasks.test]
+  help = "Run unit tests"
+  cmd  = "pytest --cov"
+
+  [tool.poe.tasks.lint]
+  help = "Run the linter"
+  cmd  = "pylint src/tsp_plotter"
+
+  [tool.poe.tasks.format]
+  help = "Run black on the code base"
+  cmd  = "black ."
+
+  [tool.poe.tasks.style]
+  help = "Validate code style"
+  cmd  = "black . --check --diff"
+
+  [tool.poe.tasks.check]
+  help     = "Run all checks on the code base"
+  sequence = ["test", "lint", "style"]
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+source = ["tsp_plotter"]
+
+[tool.coverage.report]
+show_missing = true

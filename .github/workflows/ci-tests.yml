@@ -1,0 +1,53 @@
+name: ci-tests
+
+on: [push, pull_request]
+
+jobs:
+
+  code-quality:
+    name: Check coding standards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry==1.1.14 
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.10.5
+          cache: poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Check code formatting
+        run: poetry run poe style
+
+      - name: Run linter
+        run: poetry run poe lint
+
+  run-tests:
+    name: Run tests
+    strategy:
+      matrix:
+        os: [Ubuntu, MacOS]
+        python-version: ['3.9', '3.10']
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry==1.1.14 
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run tests
+        run: poetry run pytest -v
+
