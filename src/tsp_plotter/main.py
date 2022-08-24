@@ -68,8 +68,6 @@ if __name__ == "__main__":
         if not os.path.exists(path):
             os.makedirs(path)
 
-    print(f"args is {args}")
-
     output_files = OutputFiles(args.output_dir)
 
     if args.subcommand == "create":
