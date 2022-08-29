@@ -7,9 +7,9 @@ def test_distance_writer_writes_distances(mocker):
     m = mock_open()
     mocker.patch("builtins.open", m)
 
-    distance_matrix = [[0.0, 1.1, 5.0], [1.1, 0.0, 1.3], [5.0, 1.3, 0.0]]
+    adjacency_matrix = [[0.0, 1.1, 5.0], [1.1, 0.0, 1.3], [5.0, 1.3, 0.0]]
     distance_file = "some_file"
-    distance_writer.write_distances(distance_matrix, distance_file)
+    distance_writer.write_distances(adjacency_matrix, distance_file)
 
     m.assert_called_once_with("some_file", "w")
     handle = m()

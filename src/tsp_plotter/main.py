@@ -76,7 +76,7 @@ if __name__ == "__main__":
             args.arc,
             output_files.problem,
             output_files.problem_image,
-            output_files.distance_matrix,
+            output_files.adjacency_matrix,
         )
 
     elif args.subcommand == "plot":

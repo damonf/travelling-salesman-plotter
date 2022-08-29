@@ -1,7 +1,7 @@
-def write_distances(distance_matrix, distance_matrix_file):
-    # Write the distance matrix to file.
-    with open(distance_matrix_file, "w") as file:
-        for row in distance_matrix:
+def write_distances(adjacency_matrix, adjacency_matrix_file):
+    # Write the adjacency matrix to file.
+    with open(adjacency_matrix_file, "w") as file:
+        for row in adjacency_matrix:
             line = ""
 
             for distance in row:

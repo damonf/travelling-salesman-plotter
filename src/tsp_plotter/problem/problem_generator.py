@@ -5,18 +5,18 @@ from . import distance_writer, points_plotter, problem_writer
 
 
 def generate_problem(
-    num_points, arc, problem_file, problem_image_file, distance_matrix_file
+    num_points, arc, problem_file, problem_image_file, adjacency_matrix_file
 ):
     # Generate a problem.
     # Output files:
     # Problem file; a list of points, one per line.
-    # Distance matrix; a matrix of distances between every combination of points
+    # Adjacency matrix; a matrix of distances between the points
     # The problem plotted visually
     problem = create_problem(num_points, arc)
     problem_writer.write_problem(problem, problem_file)
     points_plotter.plot_points(problem, problem_image_file)
-    dists = create_distance_matrix(problem)
-    distance_writer.write_distances(dists, distance_matrix_file)
+    dists = create_adjacency_matrix(problem)
+    distance_writer.write_distances(dists, adjacency_matrix_file)
 
 
 def create_problem(num_points, arc):
@@ -47,10 +47,9 @@ def create_problem(num_points, arc):
     return points
 
 
-def create_distance_matrix(points):
-    # Creates a matrix of distances between every combination of points.
-    # Each axis represents the indexes of points in the points list, and
-    # each entry is a distance.
+def create_adjacency_matrix(points):
+    # Creates an adjacency matrix for the distances between the points.
+    # The matrix has in position (i, j) the distance between point i and j.
     dists = []
 
     for p1 in points:
