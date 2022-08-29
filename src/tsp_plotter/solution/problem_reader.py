@@ -8,6 +8,9 @@ def read_problem(problem_file):
         for line in file:
             line = line.strip()
 
+            if not line:
+                continue
+
             parts = line.split(",")
 
             if len(parts) != 2:

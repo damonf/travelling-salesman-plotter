@@ -9,6 +9,9 @@ def read_solution(solution_file):
         for line in file:
             line = line.strip()
 
+            if not line:
+                continue
+
             try:
                 solution.append(int(line))
             except ValueError as error:
