@@ -4,9 +4,7 @@ import math
 from . import distance_writer, points_plotter, problem_writer
 
 
-def generate_problem(
-    num_points, arc, problem_file, problem_image_file, graph_file
-):
+def generate_problem(num_points, arc, problem_file, problem_image_file, graph_file):
     # Generate a problem.
     # Output files:
     # Problem file; a list of points, one per line.

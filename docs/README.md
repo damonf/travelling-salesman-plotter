@@ -2,7 +2,7 @@
 
 ![ci-tests](https://github.com/damonf/travelling-salesman-plotter/actions/workflows/ci-tests.yml/badge.svg)
 
-## Sample Usage
+## Sample Usage: Generating a Problem
 
 ```bash
 # Generate a problem (an arc with 10 points):
@@ -17,9 +17,14 @@ This will generate three files:
 
 The _-a_ option specifies an arc.  This is usefull for evaluating the correctness of the solution, since it's easy to see if a path is the shortest path.
 
+Generated problems can be solved by the [Travelling Salesman](https://github.com/damonf/travelling_salesman) program which takes the graph.txt file as input.
+
 Here is the generated _problem.png_ for the sample usage:
 
 ![problem](problem.png "problem.png")
+
+
+## Sample Usage: Plotting a Solution
 
 ```bash
 # Plot a solution to a problem:
@@ -33,10 +38,11 @@ The input files are:
 
 This will generate the _solution.png_ file, a graphical representation of the solution path.
 
+Solution files can be obtained from the [Travelling Salesman](https://github.com/damonf/travelling_salesman) program.
+
 Here is what the _solution.png_ file for our sample might look like:
 
 ![solution](solution.png "solution.png")
-
 
 ## License
 
