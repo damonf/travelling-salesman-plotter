@@ -19,7 +19,7 @@ if __name__ == "__main__":
         metavar="DIR",
         default="output",
         dest="output_dir",
-        help="output directory",
+        help="output directory [default: output]",
     )
     subparsers = parser.add_subparsers(
         help="Available commands",
@@ -76,7 +76,7 @@ if __name__ == "__main__":
             args.arc,
             output_files.problem,
             output_files.problem_image,
-            output_files.adjacency_matrix,
+            output_files.graph,
         )
 
     elif args.subcommand == "plot":

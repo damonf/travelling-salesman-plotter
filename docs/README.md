@@ -11,7 +11,7 @@ poetry run python ./src/tsp_plotter/main.py create -a 10
 ```
 This will generate three files:
 
-- _adjacency_matrix_ - a matrix of distances between the points in the problem
+- _graph.txt_ - an adjacency matrix of distances between the points in the problem
 - _problem.txt_ - the coordinates of the points in the problem
 - _problem.png_ - the problem plotted graphically
 
